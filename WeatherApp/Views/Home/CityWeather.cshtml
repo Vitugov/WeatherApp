@@ -1,0 +1,56 @@
+﻿@using WeatherApp.Models
+@model CityWeather
+
+@{
+    var styleList = new List<string> { "widget-49-date-primary", "widget-49-date-success", "widget-49-date-info",
+        "widget-49-date-warning", "widget-49-date-danger", "widget-49-date-dark", "widget-49-date-base"};
+    var random = new Random();
+    int GetRandom() => random.Next(styleList.Count);
+    string GetRandomStyle() => styleList[GetRandom()];
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/styles.css" />
+</head>
+<body>
+    <div class="container">
+    <div class="d-flex justify-content-left pb-5">
+        <h1>Weather</h1>
+    </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card card-margin">
+                    <div class="card-header no-border">
+                        <h5 class="card-title">@Model.CityName</h5>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="widget-49">
+                            <div class="widget-49-title-wrapper">
+                                <div class="@GetRandomStyle()">
+                                    <span class="widget-49-date-day">@(Model.TemperatureFahrenheit + "°F")</span>
+                                </div>
+                                <div class="widget-49-meeting-info">
+                                    <span class="widget-49-meeting-time">@Model.Time</span>
+                                    <span class="widget-49-pro-title">@Model.Date</span>
+                                </div>
+                            </div>
+                            <div class="widget-49-meeting-action">
+                                @* <a href="~/weather/@Model.CityUniqueCode" class="btn btn-sm btn-flash-border-primary">Details</a> *@
+                                <a href="~/" class="btn btn-sm btn-flash-border-primary">Back to Weather Home Page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
