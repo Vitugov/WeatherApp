@@ -11,7 +11,7 @@ namespace WeatherApp.DataAccess
                 new("LDN", "London", new DateTime(2030, 1, 1, 8, 0, 0), 33),
                 new("NYC", "New York", new DateTime(2030, 1, 1, 3, 0, 0), 60),
                 new("PAR", "Paris", new DateTime(2030, 1, 1, 9, 0, 0), 82),
-                new("PAR", "Paris", new DateTime(2030, 1, 1, 9, 0, 0), 82),
+                new("MOS", "Moscow", new DateTime(2030, 1, 1, 10, 0, 0), 72),
             ];
         }
 
