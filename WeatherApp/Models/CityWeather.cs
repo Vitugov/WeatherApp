@@ -4,7 +4,7 @@
     {
         public string CityUniqueCode { get; set; } = cityUniqueCode;
         public string CityName { get; set; } = cityName;
-        public DateTime DateAndTime { get; set; } = dateAndTime ?? new(0,0,0,0,0,0);
+        public DateTime DateAndTime { get; set; } = dateAndTime ?? new(1,1,1,0,0,0);
         public int TemperatureFahrenheit { get; set; } = temperatureFahrenheit;
 
         public string Time => DateAndTime.ToString("t");
