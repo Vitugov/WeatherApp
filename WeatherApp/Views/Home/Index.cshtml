@@ -1,34 +1,19 @@
 ﻿@model List<CityWeather>
+@{
+    var viewData = new ViewDataDictionary(ViewData)
+    {
+        { "UseDefaultLink", true},
+    };
+}
 
 <div class="container">
-@*     <div class="d-flex justify-content-center pb-5">
-        <h1>Weather</h1>
-    </div> *@
     <div class="row">
         @foreach (var item in Model)
         {
             <div class="col-lg-3">
-                <div class="card card-margin">
-                    <div class="card-header no-border">
-                        <h5 class="card-title">@item.CityName</h5>
-                    </div>
-                    <div class="card-body pt-0">
-                        <div class="widget-49">
-                            <div class="widget-49-title-wrapper">
-                                <div class="@ViewBag.RandomStyle.Get()">
-                                    <span class="widget-49-date-day">@(item.TemperatureFahrenheit + "°F")</span>
-                                </div>
-                                <div class="widget-49-meeting-info">
-                                    <span class="widget-49-meeting-time">@item.Time</span>
-                                    <span class="widget-49-pro-title">@item.Date</span>
-                                </div>
-                            </div>
-                            <div class="widget-49-meeting-action">
-                                <a href="~/weather/@item.CityUniqueCode" class="btn btn-sm btn-flash-border-primary">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @{
+                    await Html.RenderPartialAsync("_CityWeatherCard", item, viewData);
+                }
             </div>
         }
     </div>

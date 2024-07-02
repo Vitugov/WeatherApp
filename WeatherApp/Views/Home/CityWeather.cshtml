@@ -1,32 +1,19 @@
 ﻿@model CityWeather
 
+@{
+    var viewData = new ViewDataDictionary(ViewData)
+    {
+        { "UseDefaultLink", false },
+        { "Link", "~/" }
+    };
+}
+
 <div class="container">
-@*     <div class="d-flex justify-content-left pb-5">
-        <h1>Weather</h1>
-    </div> *@
     <div class="row">
         <div class="col-lg-3">
-            <div class="card card-margin">
-                <div class="card-header no-border">
-                    <h5 class="card-title">@Model.CityName</h5>
-                </div>
-                <div class="card-body pt-0">
-                    <div class="widget-49">
-                        <div class="widget-49-title-wrapper">
-                            <div class="@ViewBag.RandomStyle.Get()">
-                                <span class="widget-49-date-day">@(Model.TemperatureFahrenheit + "°F")</span>
-                            </div>
-                            <div class="widget-49-meeting-info">
-                                <span class="widget-49-meeting-time">@Model.Time</span>
-                                <span class="widget-49-pro-title">@Model.Date</span>
-                            </div>
-                        </div>
-                        <div class="widget-49-meeting-action">
-                            <a href="~/" class="btn btn-sm btn-flash-border-primary">Back to Weather Home Page</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            @{
+                await Html.RenderPartialAsync("_CityWeatherCard", Model, viewData);
+            }
+       </div>
     </div>
 </div>

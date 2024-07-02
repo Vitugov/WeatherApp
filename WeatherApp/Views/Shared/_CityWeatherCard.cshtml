@@ -1,0 +1,26 @@
+﻿@model CityWeather
+
+
+<div class="card card-margin">
+    <div class="card-header no-border">
+        <h5 class="card-title">@Model.CityName</h5>
+    </div>
+    <div class="card-body pt-0">
+        <div class="widget-49">
+            <div class="widget-49-title-wrapper">
+                <div class="@ViewBag.RandomStyle.Get()">
+                    <span class="widget-49-date-day">@(Model.TemperatureFahrenheit + "°F")</span>
+                </div>
+                <div class="widget-49-meeting-info">
+                    <span class="widget-49-meeting-time">@Model.Time</span>
+                    <span class="widget-49-pro-title">@Model.Date</span>
+                </div>
+            </div>
+            <div class="widget-49-meeting-action">
+                <a href="@(ViewBag.UseDefaultLink ? Url.Content($"~/weather/{Model.CityUniqueCode}") : Url.Content(ViewBag.Link))"
+                    class="btn btn-sm btn-flash-border-primary">Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -5,6 +5,7 @@ namespace WeatherApp.Controllers
     public class HomeController : Controller
     {
         [Route("/")]
+        [Route("/weather/")]
         public IActionResult Index()
         {
             var weatherList = DataAccess.DataAccess.GetCityWeatherList();
