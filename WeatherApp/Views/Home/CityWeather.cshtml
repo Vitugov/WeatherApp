@@ -1,18 +1,14 @@
 ﻿@model CityWeather
 
 @{
-    var viewData = new ViewDataDictionary(ViewData)
-    {
-        { "UseDefaultLink", false },
-        { "Link", "~/" }
-    };
+    ViewBag.Link = "~/";
 }
 
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
             @{
-                await Html.RenderPartialAsync("_CityWeatherCard", Model, viewData);
+                await Html.RenderPartialAsync("_CityWeatherCard", Model);
             }
        </div>
     </div>
