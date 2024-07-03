@@ -17,10 +17,9 @@
                 </div>
             </div>
             <div class="widget-49-meeting-action">
-                <a href="@(Url.Content((ViewBag.LinkToHome ?? false) ? "~/" : $"~/weather/{Model.CityUniqueCode}"))"
-                    class="btn btn-sm btn-flash-border-primary">Details</a>
+                <a href="@(Url.Content(ViewBag.IsLinkToHome ? "~/" : $"~/weather/{Model.CityUniqueCode}"))"
+                   class="btn btn-sm btn-flash-border-primary">@(ViewBag.IsLinkToHome ? "Back to Homepage" : "Details")</a>
             </div>
         </div>
     </div>
 </div>
-

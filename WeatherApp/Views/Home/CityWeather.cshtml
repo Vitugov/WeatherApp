@@ -1,15 +1,9 @@
 ﻿@model CityWeather
 
-@{
-    ViewBag.LinkToHome = true;
-}
-
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
-            @{
-                await Html.RenderPartialAsync("_CityWeatherCard", Model);
-            }
+            @await Component.InvokeAsync("CityWeatherCard", new { cityWeather = Model, isLinkToHome = true });
        </div>
     </div>
 </div>

@@ -5,9 +5,7 @@
         @foreach (var item in Model)
         {
             <div class="col-lg-3">
-                @{
-                    await Html.RenderPartialAsync("_CityWeatherCard", item);
-                }
+                @await Component.InvokeAsync("CityWeatherCard", new { cityWeather = item, isLinkToHome = false });
             </div>
         }
     </div>
