@@ -1,4 +1,5 @@
-﻿@model CityWeather
+﻿@model ICityWeather
+@inject IRandomStyleService randomStyle;
 
 
 <div class="card card-margin">
@@ -8,7 +9,7 @@
     <div class="card-body pt-0">
         <div class="widget-49">
             <div class="widget-49-title-wrapper">
-                <div class="@ViewBag.RandomStyle.Get()">
+                <div class="@randomStyle.Get()">
                     <span class="widget-49-date-day">@(Model.TemperatureFahrenheit + "°F")</span>
                 </div>
                 <div class="widget-49-meeting-info">

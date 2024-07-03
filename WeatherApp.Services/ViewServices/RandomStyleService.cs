@@ -1,6 +1,8 @@
-﻿namespace WeatherApp.Infrastructure
+﻿using WeatherApp.Interfaces;
+
+namespace WeatherApp.Services.ViewServices
 {
-    public class RandomStyle
+    public class RandomStyleService : IRandomStyleService
     {
         private List<string> styleList { get; } = [ "widget-49-date-primary", "widget-49-date-success", "widget-49-date-info",
         "widget-49-date-warning", "widget-49-date-danger", "widget-49-date-dark", "widget-49-date-base"];

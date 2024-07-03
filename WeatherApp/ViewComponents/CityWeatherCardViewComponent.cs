@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WeatherApp.Models;
+using WeatherApp.Interfaces;
 
 namespace WeatherApp.ViewComponents
 {
     public class CityWeatherCardViewComponent : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync(CityWeather cityWeather, bool isLinkToHome = false) 
+        public async Task<IViewComponentResult> InvokeAsync(ICityWeather cityWeather, bool isLinkToHome = false) 
         { 
             ViewBag.IsLinkToHome = isLinkToHome;
             return View(cityWeather);

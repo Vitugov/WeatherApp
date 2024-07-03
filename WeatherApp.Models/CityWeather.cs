@@ -1,6 +1,8 @@
-﻿namespace WeatherApp.Models
+﻿using WeatherApp.Interfaces;
+namespace WeatherApp.Models
 {
-    public class CityWeather(string cityUniqueCode = "", string cityName = "", DateTime? dateAndTime = null, int temperatureFahrenheit = 0)
+    public class CityWeather(string cityUniqueCode = "", string cityName = "",
+        DateTime? dateAndTime = null, int temperatureFahrenheit = 0) : ICityWeather
     {
         public string CityUniqueCode { get; set; } = cityUniqueCode;
         public string CityName { get; set; } = cityName;
